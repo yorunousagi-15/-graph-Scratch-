@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #f4f6f9; color: #172033; }
+header { height: 72px; background: #fff; border-bottom: 1px solid #dce2eb; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
+h1 { margin: 0; font-size: 24px; }
+h1 span { font-size: 12px; background: #172033; color: #fff; padding: 4px 8px; border-radius: 12px; }
+header p { margin: 2px 0 0; color: #718096; font-size: 12px; }
+.app { display: flex; height: calc(100vh - 105px); }
+aside { width: 350px; background: #fff; border-right: 1px solid #dce2eb; padding: 15px; overflow: auto; }
+.canvas { flex: 1; padding: 12px; min-width: 0; }
+#plot { height: 100%; min-height: 500px; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0000000a; }
+label { display: block; font-size: 12px; font-weight: 700; color: #526176; margin: 9px 0 5px; }
+input, select, button { font: inherit; width: 100%; padding: 8px; border: 1px solid #cbd4e0; border-radius: 8px; background: #fff; color: #172033; margin-bottom: 6px; }
+button { cursor: pointer; }
+.row, .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.grid button, .quick button { background: #edf1f6; }
+.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin: 6px 0; }
+.quick button { font-size: 11px; }
+.primary { background: #172033; color: #fff; border-color: #172033; font-weight: 700; margin-top: 8px; }
+.secondary { background: #e9edf4; }
+.fnrow { display: grid; grid-template-columns: 12px 1fr 30px; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #555; margin-top: 11px; }
+.del { padding: 4px; }
+.hidden { display: none; }
+p { background: #f4f7fb; padding: 8px; border-radius: 8px; font-size: 11px; line-height: 1.5; }
+footer { height: 33px; text-align: center; padding: 8px; background: #fff; border-top: 1px solid #dce2eb; color: #788395; font-size: 10px; }
+body.dark { background: #101620; color: #e8edf6; }
+body.dark header, body.dark aside, body.dark footer { background: #171e2b; border-color: #2b3547; }
+body.dark #plot { background: #0d131d; box-shadow: 0 2px 12px #0008; }
+body.dark input, body.dark select { background: #101620; color: #fff; border-color: #344054; }
+body.dark button { background: #263144; color: #fff; border-color: #344054; }
+body.dark .primary { background: #fff; color: #172033; }
+body.dark p { background: #101620; color: #aab5c5; }
+@media (max-width: 800px) { .app { display: block; height: auto; } aside { width: 100%; border-right: 0; border-bottom: 1px solid #dce2eb; } .canvas { height: 650px; } .quick { grid-template-columns: repeat(2, 1fr); } }
