@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MathLab V10</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div><h1>MathLab <span>V10</span></h1><p>数学関数を自由に描画するグラファー</p></div><button id="theme">☾</button></header>
+<div class="layout">
+<aside>
+<label>グラフの種類</label>
+<select id="mode">
+<option value="function">y = f(x)</option>
+<option value="polar">極座標 r = f(θ)</option>
+<option value="parametric">媒介変数 x(t), y(t)</option>
+<option value="implicit">陰関数 F(x,y) = 0</option>
+<option value="complex">複素平面</option>
+<option value="special">特殊関数</option>
+</select>
+
+<section id="functionPanel">
+<label>関数</label><div id="functionList"></div>
+<button id="addFunction" class="secondary">＋ 関数を追加</button>
+<div class="row"><div><label>x 最小</label><input id="xmin" value="-10"></div><div><label>x 最大</label><input id="xmax" value="10"></div></div>
+</section>
+
+<section id="polarPanel" class="hidden">
+<label>r(θ)</label><input id="polarFunction" value="sin(3*theta)">
+<div class="row"><div><label>θ 最小</label><input id="thetaMin" value="0"></div><div><label>θ 最大</label><input id="thetaMax" value="2*pi"></div></div>
+</section>
+
+<section id="parametricPanel" class="hidden">
+<label>x(t)</label><input id="paramX" value="cos(t)">
+<label>y(t)</label><input id="paramY" value="sin(t)">
+<div class="row"><div><label>t 最小</label><input id="paramMin" value="0"></div><div><label>t 最大</label><input id="paramMax" value="2*pi"></div></div>
+</section>
+
+<section id="implicitPanel" class="hidden">
+<label>F(x,y) = 0</label><input id="implicitFunction" value="x^2+y^2-9">
+<div class="row"><div><label>x 最小</label><input id="implicitXMin" value="-5"></div><div><label>x 最大</label><input id="implicitXMax" value="5"></div></div>
+<div class="row"><div><label>y 最小</label><input id="implicitYMin" value="-5"></div><div><label>y 最大</label><input id="implicitYMax" value="5"></div></div>
+</section>
+
+<section id="complexPanel" class="hidden">
+<label>f(z)</label><input id="complexFunction" value="z^2">
+<div class="row"><div><label>Re 最小</label><input id="complexXMin" value="-3"></div><div><label>Re 最大</label><input id="complexXMax" value="3"></div></div>
+<div class="row"><div><label>Im 最小</label><input id="complexYMin" value="-3"></div><div><label>Im 最大</label><input id="complexYMax" value="3"></div></div>
+<select id="complexView"><option value="magnitude">|f(z)|</option><option value="real">Re f(z)</option><option value="imag">Im f(z)</option><option value="phase">arg f(z)</option></select>
+</section>
+
+<section id="specialPanel" class="hidden">
+<label>特殊関数</label>
+<select id="specialFunction">
+<option value="gamma">Γ(x) Gamma</option><option value="zeta">ζ(x) Zeta</option>
+<option value="erf">erf(x)</option><option value="j0">J₀(x)</option>
+<option value="j1">J₁(x)</option><option value="sinc">sinc(x)</option>
+<option value="loggamma">log Γ(x)</option>
+</select>
+<div class="row"><div><label>x 最小</label><input id="specialMin" value="-5"></div><div><label>x 最大</label><input id="specialMax" value="10"></div></div>
+</section>
+
+<div class="quick">
+<button data-function="sin(x)">sin x</button><button data-function="cos(x)">cos x</button>
+<button data-function="tan(x)">tan x</button><button data-function="asin(x)">asin x</button>
+<button data-function="acos(x)">acos x</button><button data-function="atan(x)">atan x</button>
+<button data-function="exp(x)">eˣ</button><button data-function="log(x)">log x</button>
+<button data-function="sqrt(x)">√x</button><button data-function="abs(x)">|x|</button>
+<button data-function="floor(x)">⌊x⌋</button><button data-function="ceil(x)">⌈x⌉</button>
+<button data-function="x^2">x²</button><button data-function="x^3">x³</button>
+<button data-function="1/x">1/x</button><button data-function="factorial(x)">x!</button>
+</div>
+<button id="draw" class="primary">▶ 描画</button>
+<button id="clear" class="secondary">消去</button>
+<p>V10はPlotlyやmath.jsを使わず、CanvasとJavaScriptだけで描画します。</p>
+</aside>
+<main><canvas id="graph"></canvas></main>
+</div>
+<footer>MathLab V10</footer>
+<script src="math.js"></script><script src="app.js"></script>
+</body></html>
